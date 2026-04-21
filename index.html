@@ -9,16 +9,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #07090f;
-      --surface: #0d1117;
-      --surface2: #131924;
-      --border: rgba(255,255,255,0.07);
-      --accent: #00d4ff;
-      --accent2: #7c6af7;
-      --text: #e8edf5;
-      --muted: #6b7a96;
-      --card-bg: rgba(13,17,23,0.85);
-      --glow: 0 0 40px rgba(0,212,255,0.12);
+      /* ── Crystalwink brand palette (extracted from logo) ── */
+      --bg:       #04040d;           /* near-black background */
+      --surface:  #08091a;           /* deep navy card surface */
+      --surface2: #0d1130;           /* slightly lighter surface */
+      --border:   rgba(77,111,255,0.12); /* electric blue border tint */
+      --accent:   #4d6fff;           /* electric / royal blue (logo gem highlight) */
+      --accent2:  #2038c8;           /* deep cobalt (logo gem body) */
+      --accent3:  #6f8fff;           /* periwinkle (logo gem light face) */
+      --text:     #dde4f8;           /* cool near-white text */
+      --muted:    #7a8bbf;           /* periwinkle-grey muted text */
+      --card-bg:  rgba(8,9,26,0.88);
+      --glow:     0 0 40px rgba(77,111,255,0.18);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -54,7 +56,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 1.2rem 5%;
-      background: rgba(7,9,15,0.82);
+      background: rgba(4,4,13,0.88);
       -webkit-backdrop-filter: blur(18px);
       backdrop-filter: blur(18px);
       border-bottom: 1px solid var(--border);
@@ -76,7 +78,7 @@
     .logo-gem {
       width: 48px; height: 32px;
       flex-shrink: 0;
-      filter: drop-shadow(0 0 8px rgba(0,212,255,0.55));
+      filter: drop-shadow(0 0 10px rgba(77,111,255,0.65));
     }
 
     .logo-img {
@@ -108,14 +110,14 @@
 
     .nav-cta {
       background: linear-gradient(135deg, var(--accent), var(--accent2));
-      color: #07090f !important;
+      color: #ffffff !important;
       padding: 0.5rem 1.2rem;
       border-radius: 6px;
       font-weight: 600 !important;
       transition: opacity 0.2s !important;
     }
 
-    .nav-cta:hover { opacity: 0.85; color: #07090f !important; }
+    .nav-cta:hover { opacity: 0.85; color: #ffffff !important; }
 
     /* ── HERO ── */
     .hero {
@@ -133,7 +135,7 @@
       top: -10%; left: -15%;
       width: 700px; height: 700px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(0,212,255,0.08) 0%, transparent 65%);
+      background: radial-gradient(circle, rgba(32,56,200,0.13) 0%, transparent 65%);
       pointer-events: none;
     }
 
@@ -142,7 +144,7 @@
       bottom: -20%; right: -10%;
       width: 600px; height: 600px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(124,106,247,0.1) 0%, transparent 65%);
+      background: radial-gradient(circle, rgba(77,111,255,0.10) 0%, transparent 65%);
       pointer-events: none;
     }
 
@@ -151,11 +153,11 @@
       position: absolute;
       inset: 0;
       background-image:
-        -webkit-linear-gradient(rgba(0,212,255,0.04) 1px, transparent 1px),
-        -webkit-linear-gradient(left, rgba(0,212,255,0.04) 1px, transparent 1px);
+        -webkit-linear-gradient(rgba(77,111,255,0.05) 1px, transparent 1px),
+        -webkit-linear-gradient(left, rgba(77,111,255,0.05) 1px, transparent 1px);
       background-image:
-        linear-gradient(rgba(0,212,255,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,212,255,0.04) 1px, transparent 1px);
+        linear-gradient(rgba(77,111,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(77,111,255,0.05) 1px, transparent 1px);
       background-size: 60px 60px;
       -webkit-mask-image: radial-gradient(ellipse at 50% 50%, black 20%, transparent 75%);
       mask-image: radial-gradient(ellipse at 50% 50%, black 20%, transparent 75%);
@@ -166,8 +168,8 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      background: rgba(0,212,255,0.08);
-      border: 1px solid rgba(0,212,255,0.2);
+      background: rgba(77,111,255,0.10);
+      border: 1px solid rgba(77,111,255,0.25);
       color: var(--accent);
       font-size: 0.78rem;
       font-weight: 600;
@@ -231,7 +233,7 @@
 
     .btn-primary {
       background: linear-gradient(135deg, var(--accent), var(--accent2));
-      color: #07090f;
+      color: #ffffff;
       font-weight: 700;
       font-family: 'Syne', sans-serif;
       font-size: 0.9rem;
@@ -240,12 +242,12 @@
       text-decoration: none;
       letter-spacing: 0.01em;
       transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 0 30px rgba(0,212,255,0.2);
+      box-shadow: 0 0 30px rgba(77,111,255,0.25);
     }
 
     .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 0 50px rgba(0,212,255,0.35);
+      box-shadow: 0 0 50px rgba(77,111,255,0.45);
     }
 
     .btn-secondary {
@@ -340,7 +342,7 @@
       right: -200px; top: -200px;
       width: 500px; height: 500px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(124,106,247,0.07) 0%, transparent 65%);
+      background: radial-gradient(circle, rgba(32,56,200,0.09) 0%, transparent 65%);
       pointer-events: none;
     }
 
@@ -366,8 +368,8 @@
     .service-icon {
       width: 48px; height: 48px;
       border-radius: 12px;
-      background: linear-gradient(135deg, rgba(0,212,255,0.15), rgba(124,106,247,0.15));
-      border: 1px solid rgba(0,212,255,0.2);
+      background: linear-gradient(135deg, rgba(77,111,255,0.14), rgba(32,56,200,0.14));
+      border: 1px solid rgba(77,111,255,0.22);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -402,9 +404,9 @@
       letter-spacing: 0.05em;
       padding: 0.25rem 0.65rem;
       border-radius: 100px;
-      background: rgba(0,212,255,0.07);
-      border: 1px solid rgba(0,212,255,0.15);
-      color: var(--accent);
+      background: rgba(77,111,255,0.09);
+      border: 1px solid rgba(77,111,255,0.18);
+      color: var(--accent3);
     }
 
     /* ── PROJECTS (IMAGE CARDS) ── */
@@ -458,15 +460,15 @@
       opacity: 0.5;
     }
 
-    .p1 { background: linear-gradient(135deg, #0a1628, #1a0a3d, #0d2040); }
-    .p2 { background: linear-gradient(135deg, #0a2010, #0a2830, #041428); }
-    .p3 { background: linear-gradient(135deg, #1a0a0a, #2d1040, #080d1a); }
+    .p1 { background: linear-gradient(135deg, #04040d, #060d2a, #0a1245); }
+    .p2 { background: linear-gradient(135deg, #050818, #081530, #060e38); }
+    .p3 { background: linear-gradient(135deg, #050616, #0c1242, #080520); }
 
     .project-overlay {
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 220px;
-      background: linear-gradient(to bottom, transparent 40%, rgba(7,9,15,0.9) 100%);
+      background: linear-gradient(to bottom, transparent 40%, rgba(4,4,13,0.92) 100%);
       display: flex;
       align-items: flex-end;
       padding: 1.5rem;
@@ -526,8 +528,8 @@
     }
 
     .stack-pill:hover {
-      border-color: rgba(0,212,255,0.3);
-      background: rgba(0,212,255,0.05);
+      border-color: rgba(77,111,255,0.35);
+      background: rgba(77,111,255,0.08);
     }
 
     .stack-pill .pill-icon { font-size: 1.1rem; }
@@ -582,8 +584,8 @@
     .contact-detail .icon {
       width: 32px; height: 32px;
       border-radius: 8px;
-      background: rgba(0,212,255,0.08);
-      border: 1px solid rgba(0,212,255,0.15);
+      background: rgba(77,111,255,0.10);
+      border: 1px solid rgba(77,111,255,0.18);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -636,8 +638,8 @@
 
     .form-group input:focus,
     .form-group textarea:focus {
-      border-color: rgba(0,212,255,0.4);
-      box-shadow: 0 0 0 3px rgba(0,212,255,0.08);
+      border-color: rgba(77,111,255,0.5);
+      box-shadow: 0 0 0 3px rgba(77,111,255,0.10);
     }
 
     .form-group textarea {
@@ -648,7 +650,7 @@
     .form-submit {
       width: 100%;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
-      color: #07090f;
+      color: #ffffff;
       font-weight: 700;
       font-family: 'Syne', sans-serif;
       font-size: 0.95rem;
@@ -658,12 +660,12 @@
       cursor: pointer;
       letter-spacing: 0.02em;
       transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
-      box-shadow: 0 0 30px rgba(0,212,255,0.2);
+      box-shadow: 0 0 30px rgba(77,111,255,0.25);
     }
 
     .form-submit:hover {
       transform: translateY(-2px);
-      box-shadow: 0 0 50px rgba(0,212,255,0.35);
+      box-shadow: 0 0 50px rgba(77,111,255,0.45);
     }
 
     .form-submit:disabled {
@@ -715,7 +717,7 @@
 
     .footer-reg {
       font-size: 0.75rem;
-      color: rgba(107,122,150,0.6);
+      color: rgba(122,139,191,0.55);
     }
 
     .footer-links {
@@ -737,7 +739,7 @@
     .divider {
       width: 100%;
       height: 1px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      background: linear-gradient(90deg, transparent, var(--accent), var(--accent3), transparent);
       opacity: 0.3;
       margin: 0;
     }
@@ -812,7 +814,7 @@
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
       z-index: 99;
-      background: rgba(7,9,15,0.97);
+      background: rgba(4,4,13,0.97);
       -webkit-backdrop-filter: blur(20px);
       backdrop-filter: blur(20px);
       flex-direction: column;
@@ -858,55 +860,49 @@
   <!-- NAV -->
   <nav>
     <a href="#" class="logo">
-      <img src="logo/consultant.jpg" alt="Crystalwink Limited" class="logo-img" />
+      <img src="logo/Crystalwink_Ltd_LogoSmooth.png" alt="Crystalwink Limited" class="logo-img" />
       <svg class="logo-gem" viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <defs>
           <linearGradient id="dg1" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#00d4ff"/>
-            <stop offset="100%" stop-color="#7c6af7"/>
+            <stop offset="0%" stop-color="#6f8fff"/>
+            <stop offset="50%" stop-color="#4d6fff"/>
+            <stop offset="100%" stop-color="#2038c8"/>
           </linearGradient>
           <linearGradient id="dg2" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stop-color="rgba(0,212,255,0.7)"/>
-            <stop offset="100%" stop-color="rgba(124,106,247,0.5)"/>
+            <stop offset="0%" stop-color="rgba(77,111,255,0.85)"/>
+            <stop offset="100%" stop-color="rgba(32,56,200,0.65)"/>
           </linearGradient>
           <linearGradient id="dg3" x1="100%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stop-color="rgba(124,106,247,0.55)"/>
-            <stop offset="100%" stop-color="rgba(0,180,220,0.35)"/>
+            <stop offset="0%" stop-color="rgba(32,56,200,0.70)"/>
+            <stop offset="100%" stop-color="rgba(111,143,255,0.50)"/>
           </linearGradient>
         </defs>
-        <!--
-          Flat-top marquise diamond, side view, landscape orientation
-          Table (flat top): x=10..38, y=5
-          Girdle: left point (2,16), right point (46,16)
-          Culet (bottom point): (24,30)
-          Crown facets above girdle, pavilion below
-        -->
-        <!-- Crown: main face (table down to girdle) -->
+        <!-- Crown: main face -->
         <polygon points="10,5 38,5 46,16 2,16" fill="url(#dg1)" opacity="0.97"/>
-        <!-- Crown: left upper facet (table corner to left girdle point) -->
-        <polygon points="10,5 2,16 14,12" fill="rgba(255,255,255,0.18)"/>
-        <!-- Crown: right upper facet -->
-        <polygon points="38,5 46,16 34,12" fill="rgba(255,255,255,0.10)"/>
-        <!-- Crown: centre table highlight -->
-        <polygon points="14,5 34,5 34,9 14,9" fill="rgba(255,255,255,0.22)"/>
-        <!-- Crown: inner left facet -->
-        <polygon points="14,12 2,16 14,5" fill="rgba(0,212,255,0.25)"/>
-        <!-- Crown: inner right facet -->
-        <polygon points="34,12 46,16 34,5" fill="rgba(124,106,247,0.22)"/>
+        <!-- Crown: left shoulder facet -->
+        <polygon points="10,5 2,16 14,12" fill="rgba(200,215,255,0.20)"/>
+        <!-- Crown: right shoulder facet -->
+        <polygon points="38,5 46,16 34,12" fill="rgba(160,185,255,0.12)"/>
+        <!-- Crown: table highlight strip -->
+        <polygon points="14,5 34,5 34,9 14,9" fill="rgba(255,255,255,0.28)"/>
+        <!-- Crown: inner left step -->
+        <polygon points="14,12 2,16 14,5" fill="rgba(77,111,255,0.30)"/>
+        <!-- Crown: inner right step -->
+        <polygon points="34,12 46,16 34,5" fill="rgba(32,56,200,0.28)"/>
         <!-- Girdle line -->
-        <line x1="2" y1="16" x2="46" y2="16" stroke="rgba(255,255,255,0.45)" stroke-width="0.6"/>
+        <line x1="2" y1="16" x2="46" y2="16" stroke="rgba(255,255,255,0.55)" stroke-width="0.7"/>
         <!-- Pavilion: left half -->
         <polygon points="2,16 24,16 24,30" fill="url(#dg2)"/>
         <!-- Pavilion: right half -->
         <polygon points="46,16 24,16 24,30" fill="url(#dg3)"/>
         <!-- Pavilion: left inner facet -->
-        <polygon points="2,16 14,19 24,30" fill="rgba(0,212,255,0.18)"/>
+        <polygon points="2,16 14,19 24,30" fill="rgba(111,143,255,0.22)"/>
         <!-- Pavilion: right inner facet -->
-        <polygon points="46,16 34,19 24,30" fill="rgba(124,106,247,0.18)"/>
-        <!-- Pavilion: centre line -->
-        <line x1="24" y1="16" x2="24" y2="30" stroke="rgba(255,255,255,0.12)" stroke-width="0.5"/>
+        <polygon points="46,16 34,19 24,30" fill="rgba(32,56,200,0.22)"/>
+        <!-- Pavilion centre crease -->
+        <line x1="24" y1="16" x2="24" y2="30" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"/>
         <!-- Culet sparkle -->
-        <circle cx="24" cy="30" r="1" fill="rgba(255,255,255,0.5)"/>
+        <circle cx="24" cy="30" r="1.2" fill="rgba(255,255,255,0.65)"/>
       </svg>
       Crystalwink
     </a>
@@ -1087,14 +1083,14 @@
       <div class="project-card">
         <div class="project-img-placeholder p1">
           <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
-            <circle cx="40" cy="40" r="30" stroke="rgba(0,212,255,0.3)" stroke-width="1"/>
-            <circle cx="40" cy="40" r="18" stroke="rgba(0,212,255,0.5)" stroke-width="1"/>
-            <circle cx="40" cy="40" r="6" fill="rgba(0,212,255,0.7)"/>
-            <line x1="10" y1="40" x2="70" y2="40" stroke="rgba(0,212,255,0.2)" stroke-width="0.5"/>
-            <line x1="40" y1="10" x2="40" y2="70" stroke="rgba(0,212,255,0.2)" stroke-width="0.5"/>
-            <circle cx="55" cy="25" r="4" fill="rgba(124,106,247,0.6)"/>
-            <circle cx="25" cy="55" r="4" fill="rgba(124,106,247,0.6)"/>
-            <circle cx="58" cy="58" r="3" fill="rgba(0,212,255,0.4)"/>
+            <circle cx="40" cy="40" r="30" stroke="rgba(77,111,255,0.35)" stroke-width="1"/>
+            <circle cx="40" cy="40" r="18" stroke="rgba(77,111,255,0.55)" stroke-width="1"/>
+            <circle cx="40" cy="40" r="6" fill="rgba(77,111,255,0.80)"/>
+            <line x1="10" y1="40" x2="70" y2="40" stroke="rgba(77,111,255,0.25)" stroke-width="0.5"/>
+            <line x1="40" y1="10" x2="40" y2="70" stroke="rgba(77,111,255,0.25)" stroke-width="0.5"/>
+            <circle cx="55" cy="25" r="4" fill="rgba(111,143,255,0.65)"/>
+            <circle cx="25" cy="55" r="4" fill="rgba(32,56,200,0.65)"/>
+            <circle cx="58" cy="58" r="3" fill="rgba(77,111,255,0.45)"/>
           </svg>
         </div>
         <div class="project-overlay">
@@ -1110,13 +1106,13 @@
       <div class="project-card">
         <div class="project-img-placeholder p2">
           <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
-            <rect x="10" y="20" width="60" height="40" rx="4" stroke="rgba(0,212,255,0.3)" stroke-width="1" fill="none"/>
-            <rect x="20" y="30" width="15" height="8" rx="2" fill="rgba(0,212,255,0.2)"/>
-            <rect x="20" y="42" width="25" height="8" rx="2" fill="rgba(124,106,247,0.2)"/>
-            <rect x="48" y="30" width="15" height="20" rx="2" fill="rgba(0,212,255,0.1)" stroke="rgba(0,212,255,0.3)" stroke-width="0.5"/>
-            <circle cx="55.5" cy="35" r="2" fill="rgba(0,212,255,0.6)"/>
-            <line x1="55.5" y1="15" x2="55.5" y2="20" stroke="rgba(0,212,255,0.4)" stroke-width="1"/>
-            <line x1="45" y1="15" x2="66" y2="15" stroke="rgba(0,212,255,0.3)" stroke-width="0.5"/>
+            <rect x="10" y="20" width="60" height="40" rx="4" stroke="rgba(77,111,255,0.38)" stroke-width="1" fill="none"/>
+            <rect x="20" y="30" width="15" height="8" rx="2" fill="rgba(77,111,255,0.25)"/>
+            <rect x="20" y="42" width="25" height="8" rx="2" fill="rgba(32,56,200,0.25)"/>
+            <rect x="48" y="30" width="15" height="20" rx="2" fill="rgba(77,111,255,0.12)" stroke="rgba(77,111,255,0.35)" stroke-width="0.5"/>
+            <circle cx="55.5" cy="35" r="2" fill="rgba(111,143,255,0.75)"/>
+            <line x1="55.5" y1="15" x2="55.5" y2="20" stroke="rgba(77,111,255,0.50)" stroke-width="1"/>
+            <line x1="45" y1="15" x2="66" y2="15" stroke="rgba(77,111,255,0.35)" stroke-width="0.5"/>
           </svg>
         </div>
         <div class="project-overlay">
@@ -1132,14 +1128,14 @@
       <div class="project-card">
         <div class="project-img-placeholder p3">
           <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
-            <rect x="15" y="15" width="50" height="50" rx="4" stroke="rgba(124,106,247,0.3)" stroke-width="1" fill="none"/>
-            <line x1="15" y1="30" x2="65" y2="30" stroke="rgba(124,106,247,0.15)" stroke-width="0.5"/>
-            <line x1="15" y1="45" x2="65" y2="45" stroke="rgba(124,106,247,0.15)" stroke-width="0.5"/>
-            <rect x="20" y="20" width="8" height="6" rx="1" fill="rgba(0,212,255,0.3)"/>
-            <rect x="20" y="33" width="25" height="4" rx="1" fill="rgba(124,106,247,0.3)"/>
-            <rect x="20" y="39" width="18" height="4" rx="1" fill="rgba(124,106,247,0.2)"/>
-            <rect x="20" y="48" width="30" height="4" rx="1" fill="rgba(0,212,255,0.2)"/>
-            <rect x="20" y="54" width="20" height="4" rx="1" fill="rgba(0,212,255,0.15)"/>
+            <rect x="15" y="15" width="50" height="50" rx="4" stroke="rgba(77,111,255,0.35)" stroke-width="1" fill="none"/>
+            <line x1="15" y1="30" x2="65" y2="30" stroke="rgba(77,111,255,0.18)" stroke-width="0.5"/>
+            <line x1="15" y1="45" x2="65" y2="45" stroke="rgba(77,111,255,0.18)" stroke-width="0.5"/>
+            <rect x="20" y="20" width="8" height="6" rx="1" fill="rgba(111,143,255,0.40)"/>
+            <rect x="20" y="33" width="25" height="4" rx="1" fill="rgba(77,111,255,0.35)"/>
+            <rect x="20" y="39" width="18" height="4" rx="1" fill="rgba(32,56,200,0.30)"/>
+            <rect x="20" y="48" width="30" height="4" rx="1" fill="rgba(77,111,255,0.25)"/>
+            <rect x="20" y="54" width="20" height="4" rx="1" fill="rgba(32,56,200,0.20)"/>
           </svg>
         </div>
         <div class="project-overlay">
@@ -1277,24 +1273,25 @@
   <footer>
     <div class="footer-left">
       <div class="logo" style="margin-bottom:0.3rem;">
-        <img src="logo/consultant.jpg" alt="Crystalwink Limited" class="logo-img" style="height:24px;opacity:0.88;mix-blend-mode:lighten;" />
-        <svg width="36" height="24" viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(0 0 6px rgba(0,212,255,0.45))" aria-hidden="true">
+        <img src="logo/Crystalwink_Ltd_LogoSmooth.png" alt="Crystalwink Limited" class="logo-img" style="height:24px;opacity:0.90;mix-blend-mode:lighten;" />
+        <svg width="36" height="24" viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(0 0 7px rgba(77,111,255,0.55))" aria-hidden="true">
           <defs>
             <linearGradient id="dg4" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#00d4ff"/>
-              <stop offset="100%" stop-color="#7c6af7"/>
+              <stop offset="0%" stop-color="#6f8fff"/>
+              <stop offset="50%" stop-color="#4d6fff"/>
+              <stop offset="100%" stop-color="#2038c8"/>
             </linearGradient>
           </defs>
           <polygon points="10,5 38,5 46,16 2,16" fill="url(#dg4)" opacity="0.97"/>
-          <polygon points="10,5 2,16 14,12" fill="rgba(255,255,255,0.18)"/>
-          <polygon points="38,5 46,16 34,12" fill="rgba(255,255,255,0.10)"/>
-          <polygon points="14,5 34,5 34,9 14,9" fill="rgba(255,255,255,0.22)"/>
-          <line x1="2" y1="16" x2="46" y2="16" stroke="rgba(255,255,255,0.45)" stroke-width="0.6"/>
-          <polygon points="2,16 24,16 24,30" fill="rgba(0,212,255,0.55)"/>
-          <polygon points="46,16 24,16 24,30" fill="rgba(124,106,247,0.45)"/>
-          <polygon points="2,16 14,19 24,30" fill="rgba(0,212,255,0.15)"/>
-          <polygon points="46,16 34,19 24,30" fill="rgba(124,106,247,0.15)"/>
-          <circle cx="24" cy="30" r="1" fill="rgba(255,255,255,0.5)"/>
+          <polygon points="10,5 2,16 14,12" fill="rgba(200,215,255,0.20)"/>
+          <polygon points="38,5 46,16 34,12" fill="rgba(160,185,255,0.12)"/>
+          <polygon points="14,5 34,5 34,9 14,9" fill="rgba(255,255,255,0.28)"/>
+          <line x1="2" y1="16" x2="46" y2="16" stroke="rgba(255,255,255,0.55)" stroke-width="0.7"/>
+          <polygon points="2,16 24,16 24,30" fill="rgba(77,111,255,0.75)"/>
+          <polygon points="46,16 24,16 24,30" fill="rgba(32,56,200,0.65)"/>
+          <polygon points="2,16 14,19 24,30" fill="rgba(111,143,255,0.20)"/>
+          <polygon points="46,16 34,19 24,30" fill="rgba(32,56,200,0.20)"/>
+          <circle cx="24" cy="30" r="1.2" fill="rgba(255,255,255,0.65)"/>
         </svg>
         Crystalwink Limited
       </div>
