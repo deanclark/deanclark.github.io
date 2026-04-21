@@ -55,6 +55,7 @@
       justify-content: space-between;
       padding: 1.2rem 5%;
       background: rgba(7,9,15,0.82);
+      -webkit-backdrop-filter: blur(18px);
       backdrop-filter: blur(18px);
       border-bottom: 1px solid var(--border);
       transition: padding 0.3s;
@@ -73,11 +74,17 @@
     }
 
     .logo-gem {
-      width: 28px; height: 28px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+      width: 32px; height: 32px;
       flex-shrink: 0;
-      filter: drop-shadow(0 0 8px rgba(0,212,255,0.5));
+      filter: drop-shadow(0 0 8px rgba(0,212,255,0.55));
+    }
+
+    .logo-img {
+      height: 36px;
+      width: auto;
+      border-radius: 6px;
+      object-fit: contain;
+      flex-shrink: 0;
     }
 
     .nav-links {
@@ -142,9 +149,13 @@
       position: absolute;
       inset: 0;
       background-image:
+        -webkit-linear-gradient(rgba(0,212,255,0.04) 1px, transparent 1px),
+        -webkit-linear-gradient(left, rgba(0,212,255,0.04) 1px, transparent 1px);
+      background-image:
         linear-gradient(rgba(0,212,255,0.04) 1px, transparent 1px),
         linear-gradient(90deg, rgba(0,212,255,0.04) 1px, transparent 1px);
       background-size: 60px 60px;
+      -webkit-mask-image: radial-gradient(ellipse at 50% 50%, black 20%, transparent 75%);
       mask-image: radial-gradient(ellipse at 50% 50%, black 20%, transparent 75%);
       pointer-events: none;
     }
@@ -190,10 +201,12 @@
     }
 
     h1 .accent-text {
+      background: -webkit-linear-gradient(90deg, var(--accent), var(--accent2));
       background: linear-gradient(90deg, var(--accent), var(--accent2));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      color: transparent;
     }
 
     .hero-sub {
@@ -267,10 +280,12 @@
       font-family: 'Syne', sans-serif;
       font-size: 2rem;
       font-weight: 800;
+      background: -webkit-linear-gradient(135deg, var(--accent), var(--accent2));
       background: linear-gradient(135deg, var(--accent), var(--accent2));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      color: transparent;
     }
 
     .stat-label {
@@ -460,10 +475,12 @@
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
+      background: -webkit-linear-gradient(135deg, var(--accent), var(--accent2));
       background: linear-gradient(135deg, var(--accent), var(--accent2));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      color: transparent;
     }
 
     .project-body { padding: 1.5rem; }
@@ -738,10 +755,31 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       .nav-links { display: none; }
-      .contact-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
       .form-row { grid-template-columns: 1fr; }
-      .hero-stats { gap: 2rem; }
+      .hero-stats { gap: 1.5rem; }
       footer { flex-direction: column; align-items: flex-start; }
+      .hero { padding: 6rem 5% 4rem; min-height: 100svh; }
+      .services-grid { grid-template-columns: 1fr; }
+      .projects-grid { grid-template-columns: 1fr; }
+      section { padding: 4rem 5%; }
+      .contact-form { padding: 1.75rem; }
+      .footer-links { flex-wrap: wrap; gap: 1rem; }
+    }
+
+    /* ── LANDSCAPE MOBILE ── */
+    @media (max-width: 900px) and (orientation: landscape) {
+      .hero { min-height: unset; padding: 5rem 5% 3rem; }
+      .hero-glow, .hero-glow2 { width: 350px; height: 350px; }
+      h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+      .hero-stats { margin-top: 2rem; gap: 2rem; }
+      .stat-num { font-size: 1.5rem; }
+    }
+
+    /* ── TABLET ── */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .contact-grid { grid-template-columns: 1fr 1.2fr; gap: 2.5rem; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
     /* ── HAMBURGER (mobile) ── */
@@ -750,7 +788,10 @@
       flex-direction: column;
       gap: 5px;
       cursor: pointer;
-      padding: 4px;
+      padding: 8px;
+      border: none;
+      background: none;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .nav-burger span {
@@ -759,7 +800,50 @@
       height: 2px;
       background: var(--text);
       border-radius: 2px;
+      -webkit-transition: 0.3s;
       transition: 0.3s;
+    }
+
+    /* Mobile drawer */
+    .mobile-drawer {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 99;
+      background: rgba(7,9,15,0.97);
+      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(20px);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+    }
+
+    .mobile-drawer.open { display: flex; }
+
+    .mobile-drawer a {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+      -webkit-transition: color 0.2s;
+      transition: color 0.2s;
+    }
+
+    .mobile-drawer a:hover { color: var(--accent); }
+
+    .mobile-close {
+      position: absolute;
+      top: 1.2rem; right: 5%;
+      font-size: 1.5rem;
+      color: var(--muted);
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 8px;
+      -webkit-tap-highlight-color: transparent;
     }
 
     @media (max-width: 768px) {
@@ -772,7 +856,38 @@
   <!-- NAV -->
   <nav>
     <a href="#" class="logo">
-      <div class="logo-gem"></div>
+      <img src="logo/consultant.jpg" alt="Crystalwink Limited" class="logo-img" />
+      <svg class="logo-gem" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <linearGradient id="dg1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#00d4ff"/>
+            <stop offset="100%" stop-color="#7c6af7"/>
+          </linearGradient>
+          <linearGradient id="dg2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="rgba(0,212,255,0.6)"/>
+            <stop offset="100%" stop-color="rgba(124,106,247,0.4)"/>
+          </linearGradient>
+        </defs>
+        <!-- Side-view diamond: girdle, crown, pavilion -->
+        <!-- Crown (top half) -->
+        <polygon points="16,3 28,14 16,16 4,14" fill="url(#dg1)" opacity="0.95"/>
+        <!-- Left crown facet -->
+        <polygon points="4,14 16,3 16,16" fill="rgba(0,212,255,0.5)"/>
+        <!-- Right crown facet -->
+        <polygon points="28,14 16,3 16,16" fill="rgba(124,106,247,0.5)"/>
+        <!-- Crown top highlight -->
+        <polygon points="16,3 22,10 16,11 10,10" fill="rgba(255,255,255,0.25)"/>
+        <!-- Girdle line -->
+        <line x1="4" y1="14" x2="28" y2="14" stroke="rgba(255,255,255,0.4)" stroke-width="0.5"/>
+        <!-- Pavilion (bottom half) -->
+        <polygon points="4,14 28,14 16,29" fill="url(#dg2)"/>
+        <!-- Pavilion left facet -->
+        <polygon points="4,14 16,14 16,29" fill="rgba(0,212,255,0.3)"/>
+        <!-- Pavilion right facet -->
+        <polygon points="28,14 16,14 16,29" fill="rgba(124,106,247,0.3)"/>
+        <!-- Culet highlight -->
+        <polygon points="16,27 18,22 16,22 14,22" fill="rgba(255,255,255,0.15)"/>
+      </svg>
       Crystalwink
     </a>
     <ul class="nav-links">
@@ -781,10 +896,19 @@
       <li><a href="#stack">Technology</a></li>
       <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
     </ul>
-    <div class="nav-burger" onclick="toggleMenu(this)">
+    <div class="nav-burger" onclick="openMenu()" aria-label="Open menu">
       <span></span><span></span><span></span>
     </div>
   </nav>
+
+  <!-- MOBILE DRAWER -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <button class="mobile-close" onclick="closeMenu()" aria-label="Close menu">✕</button>
+    <a href="#expertise" onclick="closeMenu()">Expertise</a>
+    <a href="#projects" onclick="closeMenu()">Projects</a>
+    <a href="#stack" onclick="closeMenu()">Technology</a>
+    <a href="#contact" onclick="closeMenu()" style="color:var(--accent)">Get in Touch</a>
+  </div>
 
   <!-- HERO -->
   <section class="hero" id="home">
@@ -1133,10 +1257,24 @@
   <footer>
     <div class="footer-left">
       <div class="logo" style="margin-bottom:0.3rem;">
-        <div class="logo-gem" style="width:20px;height:20px;"></div>
+        <img src="logo/consultant.jpg" alt="Crystalwink Limited" class="logo-img" style="height:24px;" />
+        <svg width="22" height="22" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(0 0 6px rgba(0,212,255,0.45))" aria-hidden="true">
+          <defs>
+            <linearGradient id="dg3" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#00d4ff"/>
+              <stop offset="100%" stop-color="#7c6af7"/>
+            </linearGradient>
+          </defs>
+          <polygon points="16,3 28,14 16,16 4,14" fill="url(#dg3)" opacity="0.95"/>
+          <polygon points="4,14 16,3 16,16" fill="rgba(0,212,255,0.5)"/>
+          <polygon points="28,14 16,3 16,16" fill="rgba(124,106,247,0.5)"/>
+          <polygon points="4,14 28,14 16,29" fill="rgba(0,180,220,0.5)"/>
+          <polygon points="4,14 16,14 16,29" fill="rgba(0,212,255,0.25)"/>
+          <polygon points="28,14 16,14 16,29" fill="rgba(124,106,247,0.25)"/>
+        </svg>
         Crystalwink Limited
       </div>
-      <div class="footer-copy">© 2025 Crystalwink Limited. All rights reserved.</div>
+      <div class="footer-copy">© 2026 Crystalwink Limited. All rights reserved.</div>
       <div class="footer-reg">Registered in England &amp; Wales</div>
     </div>
     <ul class="footer-links">
@@ -1164,7 +1302,7 @@
     // NOTE: To wire this to a real email, replace the formspree URL below
     // with your own endpoint from https://formspree.io (free tier available),
     // or use Netlify Forms, EmailJS, or similar.
-    const FORM_ENDPOINT = 'https://formspree.io/f/mnjlzqjd'; // ← replace this
+    const FORM_ENDPOINT = 'https://formspree.io/f/mnjlzqjd';
 
     async function submitForm() {
       const name  = document.getElementById('fname').value.trim();
@@ -1188,8 +1326,7 @@
           body: JSON.stringify({ name, email, phone, message: msg })
         });
 
-        if (res.ok || FORM_ENDPOINT.includes('YOUR_FORM_ID')) {
-          // Show success regardless when endpoint not yet configured (demo mode)
+        if (res.ok) {
           document.getElementById('formArea').style.display = 'none';
           document.getElementById('formSuccess').style.display = 'block';
         } else {
@@ -1208,8 +1345,13 @@
     });
 
     // ── MOBILE NAV ──
-    function toggleMenu(el) {
-      el.classList.toggle('open');
+    function openMenu() {
+      document.getElementById('mobileDrawer').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+      document.getElementById('mobileDrawer').classList.remove('open');
+      document.body.style.overflow = '';
     }
   </script>
 </body>
