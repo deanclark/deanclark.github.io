@@ -74,7 +74,7 @@
     }
 
     .logo-gem {
-      width: 32px; height: 32px;
+      width: 48px; height: 32px;
       flex-shrink: 0;
       filter: drop-shadow(0 0 8px rgba(0,212,255,0.55));
     }
@@ -82,9 +82,11 @@
     .logo-img {
       height: 36px;
       width: auto;
-      border-radius: 6px;
+      border-radius: 4px;
       object-fit: contain;
       flex-shrink: 0;
+      opacity: 0.88;
+      mix-blend-mode: lighten;
     }
 
     .nav-links {
@@ -192,9 +194,9 @@
 
     h1 {
       font-family: 'Syne', sans-serif;
-      font-size: clamp(2.8rem, 6vw, 5.5rem);
+      font-size: clamp(1.9rem, 5.5vw, 5.5rem);
       font-weight: 800;
-      line-height: 1.05;
+      line-height: 1.1;
       letter-spacing: -0.03em;
       max-width: 850px;
       animation: fadeUp 0.7s 0.1s ease both;
@@ -857,36 +859,54 @@
   <nav>
     <a href="#" class="logo">
       <img src="logo/consultant.jpg" alt="Crystalwink Limited" class="logo-img" />
-      <svg class="logo-gem" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <svg class="logo-gem" viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <defs>
           <linearGradient id="dg1" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stop-color="#00d4ff"/>
             <stop offset="100%" stop-color="#7c6af7"/>
           </linearGradient>
-          <linearGradient id="dg2" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="rgba(0,212,255,0.6)"/>
-            <stop offset="100%" stop-color="rgba(124,106,247,0.4)"/>
+          <linearGradient id="dg2" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="rgba(0,212,255,0.7)"/>
+            <stop offset="100%" stop-color="rgba(124,106,247,0.5)"/>
+          </linearGradient>
+          <linearGradient id="dg3" x1="100%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="rgba(124,106,247,0.55)"/>
+            <stop offset="100%" stop-color="rgba(0,180,220,0.35)"/>
           </linearGradient>
         </defs>
-        <!-- Side-view diamond: girdle, crown, pavilion -->
-        <!-- Crown (top half) -->
-        <polygon points="16,3 28,14 16,16 4,14" fill="url(#dg1)" opacity="0.95"/>
-        <!-- Left crown facet -->
-        <polygon points="4,14 16,3 16,16" fill="rgba(0,212,255,0.5)"/>
-        <!-- Right crown facet -->
-        <polygon points="28,14 16,3 16,16" fill="rgba(124,106,247,0.5)"/>
-        <!-- Crown top highlight -->
-        <polygon points="16,3 22,10 16,11 10,10" fill="rgba(255,255,255,0.25)"/>
+        <!--
+          Flat-top marquise diamond, side view, landscape orientation
+          Table (flat top): x=10..38, y=5
+          Girdle: left point (2,16), right point (46,16)
+          Culet (bottom point): (24,30)
+          Crown facets above girdle, pavilion below
+        -->
+        <!-- Crown: main face (table down to girdle) -->
+        <polygon points="10,5 38,5 46,16 2,16" fill="url(#dg1)" opacity="0.97"/>
+        <!-- Crown: left upper facet (table corner to left girdle point) -->
+        <polygon points="10,5 2,16 14,12" fill="rgba(255,255,255,0.18)"/>
+        <!-- Crown: right upper facet -->
+        <polygon points="38,5 46,16 34,12" fill="rgba(255,255,255,0.10)"/>
+        <!-- Crown: centre table highlight -->
+        <polygon points="14,5 34,5 34,9 14,9" fill="rgba(255,255,255,0.22)"/>
+        <!-- Crown: inner left facet -->
+        <polygon points="14,12 2,16 14,5" fill="rgba(0,212,255,0.25)"/>
+        <!-- Crown: inner right facet -->
+        <polygon points="34,12 46,16 34,5" fill="rgba(124,106,247,0.22)"/>
         <!-- Girdle line -->
-        <line x1="4" y1="14" x2="28" y2="14" stroke="rgba(255,255,255,0.4)" stroke-width="0.5"/>
-        <!-- Pavilion (bottom half) -->
-        <polygon points="4,14 28,14 16,29" fill="url(#dg2)"/>
-        <!-- Pavilion left facet -->
-        <polygon points="4,14 16,14 16,29" fill="rgba(0,212,255,0.3)"/>
-        <!-- Pavilion right facet -->
-        <polygon points="28,14 16,14 16,29" fill="rgba(124,106,247,0.3)"/>
-        <!-- Culet highlight -->
-        <polygon points="16,27 18,22 16,22 14,22" fill="rgba(255,255,255,0.15)"/>
+        <line x1="2" y1="16" x2="46" y2="16" stroke="rgba(255,255,255,0.45)" stroke-width="0.6"/>
+        <!-- Pavilion: left half -->
+        <polygon points="2,16 24,16 24,30" fill="url(#dg2)"/>
+        <!-- Pavilion: right half -->
+        <polygon points="46,16 24,16 24,30" fill="url(#dg3)"/>
+        <!-- Pavilion: left inner facet -->
+        <polygon points="2,16 14,19 24,30" fill="rgba(0,212,255,0.18)"/>
+        <!-- Pavilion: right inner facet -->
+        <polygon points="46,16 34,19 24,30" fill="rgba(124,106,247,0.18)"/>
+        <!-- Pavilion: centre line -->
+        <line x1="24" y1="16" x2="24" y2="30" stroke="rgba(255,255,255,0.12)" stroke-width="0.5"/>
+        <!-- Culet sparkle -->
+        <circle cx="24" cy="30" r="1" fill="rgba(255,255,255,0.5)"/>
       </svg>
       Crystalwink
     </a>
@@ -1257,20 +1277,24 @@
   <footer>
     <div class="footer-left">
       <div class="logo" style="margin-bottom:0.3rem;">
-        <img src="logo/consultant.jpg" alt="Crystalwink Limited" class="logo-img" style="height:24px;" />
-        <svg width="22" height="22" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(0 0 6px rgba(0,212,255,0.45))" aria-hidden="true">
+        <img src="logo/consultant.jpg" alt="Crystalwink Limited" class="logo-img" style="height:24px;opacity:0.88;mix-blend-mode:lighten;" />
+        <svg width="36" height="24" viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(0 0 6px rgba(0,212,255,0.45))" aria-hidden="true">
           <defs>
-            <linearGradient id="dg3" x1="0%" y1="0%" x2="100%" y2="100%">
+            <linearGradient id="dg4" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stop-color="#00d4ff"/>
               <stop offset="100%" stop-color="#7c6af7"/>
             </linearGradient>
           </defs>
-          <polygon points="16,3 28,14 16,16 4,14" fill="url(#dg3)" opacity="0.95"/>
-          <polygon points="4,14 16,3 16,16" fill="rgba(0,212,255,0.5)"/>
-          <polygon points="28,14 16,3 16,16" fill="rgba(124,106,247,0.5)"/>
-          <polygon points="4,14 28,14 16,29" fill="rgba(0,180,220,0.5)"/>
-          <polygon points="4,14 16,14 16,29" fill="rgba(0,212,255,0.25)"/>
-          <polygon points="28,14 16,14 16,29" fill="rgba(124,106,247,0.25)"/>
+          <polygon points="10,5 38,5 46,16 2,16" fill="url(#dg4)" opacity="0.97"/>
+          <polygon points="10,5 2,16 14,12" fill="rgba(255,255,255,0.18)"/>
+          <polygon points="38,5 46,16 34,12" fill="rgba(255,255,255,0.10)"/>
+          <polygon points="14,5 34,5 34,9 14,9" fill="rgba(255,255,255,0.22)"/>
+          <line x1="2" y1="16" x2="46" y2="16" stroke="rgba(255,255,255,0.45)" stroke-width="0.6"/>
+          <polygon points="2,16 24,16 24,30" fill="rgba(0,212,255,0.55)"/>
+          <polygon points="46,16 24,16 24,30" fill="rgba(124,106,247,0.45)"/>
+          <polygon points="2,16 14,19 24,30" fill="rgba(0,212,255,0.15)"/>
+          <polygon points="46,16 34,19 24,30" fill="rgba(124,106,247,0.15)"/>
+          <circle cx="24" cy="30" r="1" fill="rgba(255,255,255,0.5)"/>
         </svg>
         Crystalwink Limited
       </div>
